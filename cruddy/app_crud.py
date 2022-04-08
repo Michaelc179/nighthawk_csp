@@ -63,7 +63,8 @@ def crud_authorize():
         phone = request.form.get("phone")
         password1 = request.form.get("password1")
         password2 = request.form.get("password1")           # password should be verified
-        if authorize(user_name, email, password1,phone):    # zero index [0] used as user_name and email are type tuple
+        ghuser = request.form.get("ghuser")
+        if authorize(user_name, email, password1, phone, ghuser):    # zero index [0] used as user_name and email are type tuple
             return redirect(url_for('crud.crud_login'))
     # show the auth user page if the above fails for some reason
     return render_template("authorize.html")
@@ -78,7 +79,8 @@ def create():
             request.form.get("name"),
             request.form.get("email"),
             request.form.get("password"),
-            request.form.get("phone")
+            request.form.get("phone"),
+            request.form.get("ghuser")
         )
         po.create()
     return redirect(url_for('crud.crud'))
