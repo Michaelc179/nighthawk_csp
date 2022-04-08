@@ -112,6 +112,7 @@
                 <input type="checkbox" onclick="darkFunction()" class="form-check-input" id="darkSwitch">
                 <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
             </div>
+            <p> Logged in user: {{current_user.name}} </p>
             <div>
                 <a href={{url_for('crud.crud_login')}}>Log In</a>
             </div>
@@ -122,10 +123,42 @@
 
         </div>
 
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <div>
+                <button class="btn btn-primary bg-secondary" data-bs-toggle="offcanvas" data-bs-target="#searchBar">Show User Info</button>
+            </div>
+        </div>
+
         {% block navbar_script %}
             <!-- Navigation bar JavaScript support -->
             <script src={{  url_for("static", filename="javascript/navbar.js", version='140') }}></script>
         {% endblock %}
 
+
     </div>
 </nav>
+
+<div class="offcanvas offcanvas-end bg-white text-dark" tabindex="-1" id="searchBar" aria-labelledby="offcanvasEndLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasEndLabel"> Your User Information </h5>
+    </div>
+    <div class="offcanvas-body small">
+        <div class="container">
+            <table class="table">
+                <tr>
+                    <th>Username</th>
+                    <td> Logged in user: {{current_user.name}} </td>
+                </tr>
+                <tr>
+                    <th>Login Button </th>
+                    <td> <a href={{url_for('crud.crud_login')}}>Log In</a> </td>
+                </tr>
+                <tr>
+                    <th> Logout Button </th>
+                    <td> <a href={{url_for('crud.crud_logout')}}>Log out</a> </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
