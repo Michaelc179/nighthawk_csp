@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template
+from flask_login import login_required
 
 app_frontend = Blueprint('frontend', __name__,
                          url_prefix='/frontend',
@@ -16,7 +17,7 @@ def graph():
 def life():
     return render_template("life.html")
 
-
 @app_frontend.route('/snake')
+@login_required
 def snake():
     return render_template("snake.html")
