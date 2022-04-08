@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, login_required
 
 app_frontend = Blueprint('frontend', __name__,
                          url_prefix='/frontend',
