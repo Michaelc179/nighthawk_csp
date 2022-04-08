@@ -16,7 +16,7 @@ def graph():
 def life():
     return render_template("life.html")
 
-
+@login_required
 @app_frontend.route('/snake')
 def snake():
     return render_template("snake.html")
