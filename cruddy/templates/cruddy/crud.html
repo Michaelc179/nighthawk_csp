@@ -21,7 +21,7 @@
 
         <div class="container bg-secondary py-4">
             <div class="p-5 mb-4 bg-light text-dark rounded-3">
-                <p> Logged in user: <a href={{url_for('crud.crud_logout')}}>Log out</a></p>
+                <p> Logged in user: {{crud_user.name}} <a href={{url_for('crud.crud_logout')}}>Log out</a></p>
                 <h2>Table Viewer</h2>
                 <div class="row align-items-md-stretch">
                     <table class="table">
